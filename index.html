@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DrKode</title>
+  <link rel="icon" type="image/x-icon" sizes="320x320" href="icons/drkode.ico">
+  <!-- <link rel="icon" type="image/x-icon" sizes="250" href="C:\Users\rockr\Downloads\drkode.ico"> -->
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <h1>DrKode</h1>
+  <!-- <div class="tab">
+    <a class="tablinks" onclick="openCity(event, 'tabName1')" style="padding:5px 10px 5px 10px">TabName1</a>
+  </div> -->
+  <div class="container">
+    <ul class="list">
+      <!-- List1 Array&Hashing -->
+      <!-- <input type="checkbox" group="hulk" value="dummmy">PM1 -->
+      <li onclick="toggleSublist('list1')">Array & Hashing</li>
+        <ul id="list1" class="Arrays & Hashing" style="display: none;">
+            <li> <a href="https://leetcode.com/problems/contains-duplicate/"                                target="_blank">Contains Duplicate
+              <div class="icons">
+                <a onclick="toggleSublist('75a1')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://videolink.com" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75a1" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75a1val')">Copy</button>
+                  <pre id="75a1val">
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        hashset = set()
+        for n in nums:
+            if n in hashset:
+                return True
+            hashset.add(n)
+        return False
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75a1')">Close</button>
+              </div>
+            </div></a></li>
+            
+            <li> <a href="https://leetcode.com/problems/valid-anagram/"                                     target="_blank">Valid Anagram
+              <div class="icons">
+                <a onclick="toggleSublist('75a2')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://videolink.com" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75a2" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75a2val')">Copy</button>
+                  <pre id="75a2val">
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+
+        countS = {}
+        for c in s:
+            if c not in countS:
+                countS[c] = 0
+            countS[c] += 1
+        
+        countT = {}
+        for c in t:
+            if c not in countT:
+                countT[c] = 0
+            countT[c] += 1
+
+        for k in countS.keys():
+            if (k not in countT) or (countS[k] != countT[k]):
+                return False
+        return True
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75a2')">Close</button>
+              </div>
+            </div></a></li>
+
+            <li> <a href="https://leetcode.com/problems/two-sum/"                                           target="_blank">Two Sum
+              <div class="icons">
+                <a onclick="toggleSublist('75a3')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://videolink.com" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75a3" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75a3val')">Copy</button>
+                  <pre id="75a3val">
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashmap = {}
+        for i, n in enumerate(nums):
+            dif = target - n
+            if dif in hashmap:
+                return hashmap[dif], i
+            hashmap[n] = i
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75a3')">Close</button>
+              </div>
+            </div></a></li>
+
+            <li> <a href="https://leetcode.com/problems/group-anagrams/"                                    target="_blank">Group Anagram
+              <div class="icons">
+                <a onclick="toggleSublist('75a4')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://videolink.com" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75a4" class="popup">
+                    <button class="copyClip" onclick="copyToClipboard('75a4val')">Copy</button>
+                <pre id="75a4val">
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        
+        hashmap = defaultdict(list)
+        
+        for word in strs:
+            arr = [0] * 26
+            for c in word:
+                i = ord(c) - ord('a')
+                arr[i] += 1
+            
+            keyy = ''
+            for c in arr:
+                keyy += str(c) + '#'
+            hashmap[keyy].append(word)
+        
+        return list(hashmap.values())
+                </pre>
+                    <button class="close-btn" onclick="closeModal('75a4')">Close</button>
+                </div>
+              </div></a></li>
+
+            <li> <a href="https://leetcode.com/problems/top-k-frequent-elements/"                           target="_blank">Top K Frequent Elements
+              <div class="icons">
+                <a onclick="toggleSublist('75a5')" title='Code'>
+                  <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+              </a>
+              <a href="https://videolink.com" target="_blank" title="Youtube">
+                  <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+              </a>
+              <div id="75a5" class="popup">
+                <button class="copyClip" onclick="copyToClipboard('75a5val')">Copy</button>
+                <pre id="75a5val">
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        hashmap =  {}
+        N = len(nums)
+        
+        for n in nums:
+            if n not in hashmap:
+                hashmap[n] = 0
+            hashmap[n] += 1
+                
+                
+        arr = [[] for _ in range(N + 1)]
+
+        for keyy, v in hashmap.items():
+            arr[v].append(keyy)
+            
+        res = []
+        r = len(nums)
+        
+        while -1 < r:
+            for n in arr[r]:
+                res.append(n)
+                if len(res) == k:
+                    return res
+            r -= 1
+        return res
+                </pre>
+                <button class="close-btn" onclick="closeModal('75a5')">Close</button>
+            </div>
+          </div></a></li>
+
+            <li> <a href="https://neetcode.io/problems/string-encode-and-decode"                            target="_blank">Encode & Decode Strings
+              <div class="icons">
+                <a onclick="toggleSublist('75a6')" title='Code'>
+                  <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+              </a>
+              <a href="https://videolink.com" target="_blank" title="Youtube">
+                  <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+              </a>
+              <div id="75a6" class="popup">
+                <button class="copyClip" onclick="copyToClipboard('75a6val')">Copy</button>
+                <pre id="75a6val">
+class Solution:
+    def encode(self, strs: List[str]) -> str:
+        res = ''
+        for s in strs:
+            res += str(len(s)) + '#' + s
+        return res
+
+    def decode(self, s: str) -> List[str]:
+        i = 0
+        N = len(s)
+        res = []
+
+        while i < N:
+            j = i
+
+            while s[j+1] != '#':
+                j += 1
+            n = int(s[i:j+1])
+            res.append(s[j+2:j+2+n])
+            i = j + n + 2
+
+            # j   -> at length of n
+            # j+1 -> at '#'
+            # j+2 -> word 1st index
+
+        return res 
+                </pre>
+                <button class="close-btn" onclick="closeModal('75a6')">Close</button>
+            </div>
+          </div></a></li>
+
+            <li> <a href="https://leetcode.com/problems/product-of-array-except-self/"                      target="_blank">Product of Array Except Self
+                <div class="icons">
+              <a onclick="toggleSublist('75a7')" title='Code'>
+                  <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+              </a>
+              <a href="https://videolink.com" target="_blank" title="Youtube">
+                  <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+              </a>
+              <div id="75a7" class="popup">
+                <button class="copyClip" onclick="copyToClipboard('75a7val')">Copy</button>
+                <pre id="75a7val">
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        N = len(nums)
+        res = [1] * N
+        cur = 1
+
+        for i in range(N):
+            res[i] *= cur
+            cur *= nums[i]
+
+        cur = 1
+        for i in range(N-1, -1, -1):
+            res[i] *= cur
+            cur *= nums[i]
+
+        return res
+                </pre>
+                <button class="close-btn" onclick="closeModal('75a7')">Close</button>
+            </div>
+          </div></a></li>
+
+            <li> <a href="https://leetcode.com/problems/longest-consecutive-sequence/"                      target="_blank">Longest Consecutive Subsequence
+              <div class="icons">
+                <a onclick="toggleSublist('75a8')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://videolink.com" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75a8" class="popup">
+                    <button class="copyClip" onclick="copyToClipboard('75a8val')">Copy</button>
+                    <pre id="75a8val">
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        res = 0
+        hashset = set(nums)
+        for n in hashset:
+            if n - 1 in hashset:
+                continue
+            m = n
+            while m + 1 in hashset:
+                m += 1
+            res = max(res, m - n + 1)
+        return res
+                    </pre>
+                    <button class="close-btn" onclick="closeModal('75a8')">Close</button>
+                </div>
+              </div></a></li>
+        </ul>
+
+      <!-- List2 2Poniter-->
+      <li onclick="toggleSublist('list2')">Two Pointer</li>
+        <ul id="list2" class="Two Pointers" style="display: none;">
+          <li> <a href="https://leetcode.com/problems/valid-palindrome/"                                    target="_blank">Valid Palindrome</a></li>
+          <li> <a href="https://leetcode.com/problems/3sum/"                                                target="_blank">3 Sum</a></li>
+          <li> <a href="https://leetcode.com/problems/container-with-most-water/"                           target="_blank">Container With Most Water</a></li>
+        </ul>  
+      
+      <!-- List3 SlindingWindow-->
+      <li onclick="toggleSublist('list3')">Sliding Window</li>
+        <ul id="list3" class="Sliding Window" style="display: none;">
+          <li> <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"                     target="_blank">Best Time to Buy And Sell Stock</a></li>
+          <li> <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/"      target="_blank">Longest Substing Without Repeating Characters</a></li>
+          <li> <a href="https://leetcode.com/problems/longest-repeating-character-replacement/"             target="_blank">Longest Repeating Character Replacement</a></li>
+          <li> <a href="https://leetcode.com/problems/minimum-window-substring/"                            target="_blank">Minimum Window Substring</a></li>
+        </ul>   
+      
+      <!-- List4 Stack-->
+      <li onclick="toggleSublist('list4')">Stack</li>
+        <ul id="list4" class="Stack" style="display: none;">
+          <li> <a href="https://leetcode.com/problems/valid-parentheses/"                                   target="_blank">Valid Parentheses</a></li>
+        </ul> 
+        
+      <!-- List5 BinarySearch-->
+      <li onclick="toggleSublist('list5')">Binary Search</li>
+        <ul id="list5" class="Binary Search" style="display: none;">
+          <li> <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"                target="_blank">Find Minimum in Rotated Sorted Array</a></li>
+          <li> <a href="https://leetcode.com/problems/search-in-rotated-sorted-array/"                      target="_blank">Search in Rotated Sorted Array</a></li>
+        </ul> 
+
+      <!-- List6 LinkedList -->
+      <li onclick="toggleSublist('list6')">Linked List</li>
+        <ul id="list6" class="Linked List" style="display: none;">
+          <li> <a href="https://leetcode.com/problems/reverse-linked-list/"                                 target="_blank">Reverse Linked List</a></li>
+          <li> <a href="https://leetcode.com/problems/merge-two-sorted-lists/"                              target="_blank">Merge 2 Sorted Lists</a></li>
+          <li> <a href="https://leetcode.com/problems/reorder-list/"                                        target="_blank">Reorder List</a></li>
+          <li> <a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/"                    target="_blank">Remove Nth Node From End Of List</a></li>
+          <li> <a href="https://leetcode.com/problems/linked-list-cycle/"                                   target="_blank">Linked List Cycle</a></li>
+          <li> <a href="https://leetcode.com/problems/merge-k-sorted-lists/"                                target="_blank">Merge K Sorted Lists</a></li>
+        </ul>
+
+      <!-- List7 Trees -->
+      <li onclick="toggleSublist('list7')">Tree</li>
+        <ul id="list7" class="Trees" style="display: none;">
+          <li> <a href="https://leetcode.com/problems/invert-binary-tree/"                                target="_blank">Invert Binary Tree</a></li>
+          <li> <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/"                      target="_blank">Maximum Depth of Binary Tree</a></li>
+          <li> <a href="https://leetcode.com/problems/same-tree/"                                         target="_blank">Same Tree</a></li>
+          <li> <a href="https://leetcode.com/problems/subtree-of-another-tree/"                           target="_blank">Subtree of Another Tree</a></li>
+          <li> <a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"    target="_blank">Lowest Common Ancestor BS Tree</a></li>
+          <li> <a href="https://leetcode.com/problems/binary-tree-level-order-traversal/"                 target="_blank">B-Tree Level Order Traversal</a></li>
+          <li> <a href="https://leetcode.com/problems/validate-binary-search-tree/"                       target="_blank">Validate BS-Tree</a></li>
+          <li> <a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/"                     target="_blank">Kth Smallest Element in BS-Tree</a></li>
+          <li> <a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/" target="_blank">Construct B-Tree From Preorder and Inorder Traversal</a></li>
+          <li> <a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/"                      target="_blank">B-Tree Maximum Path Sum</a></li>
+          <li> <a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"             target="_blank">Serialize and Deserialize B-Tree</a></li>
+        </ul>
+
+      <!-- List8 Heap / Priority Queue-->
+      <li onclick="toggleSublist('list8')">Heap</li>
+        <ul id="list8" class="Heap" style="display: none;">
+          <li> <a href="https://leetcode.com/problems/find-median-from-data-stream/"                      target="_blank">Find Median From data-stream
+            <div class="icons">
+            <a onclick="toggleSublist('75h1')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="https://videolink.com" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75h1" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75h1val')">Copy</button>
+              <pre id="75h1val">
+class MedianFinder:
+    def __init__(self):
+        self.left = []
+        self.right = []
+
+    def addNum(self, num: int) -> None:
+        heappush(self.left, -num)
+        
+        if len(self.left) - 1 > len(self.right):
+            n = -heappop(self.left)
+            heappush(self.right, n)
+            
+        if self.right and self.right[0] < -self.left[0]:
+            n1 = heappop(self.left)
+            n2 = heappop(self.right)
+            heappush(self.left, -n2)
+            heappush(self.right, -n1)
+            
+    def findMedian(self) -> float:
+        if (len(self.left) + len(self.right)) % 2: #Odd
+            return -self.left[0]
+        return (-self.left[0] + self.right[0])/2
+              </pre>
+              <button class="close-btn" onclick="closeModal('75h1')">Close</button>
+          </div>
+        </div></a></li>
+        </ul> 
+      
+      <!-- List9 Backtracking-->
+      <li onclick="toggleSublist('list9')">Backtracking</li>
+      <ul id="list9" class="Backtracking" style="display: none;">
+        <li> <a href="https://leetcode.com/problems/combination-sum/"                                    target="_blank">Combination Sum
+          <div class="icons">
+            <a onclick="toggleSublist('75i1')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="https://videolink.com" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75i1" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75i1val')">Copy</button>
+              <pre id="75i1val">
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        res = []
+        candidates.sort()
+        def dfs(i, curSum, sub):
+            if curSum >= target or i >= len(candidates):
+                if curSum == target:
+                    res.append(sub[:])
+                return
+            dfs(i, curSum + candidates[i], sub + [candidates[i]])
+            dfs(i+1, curSum, sub)
+        dfs(0, 0, [])
+        return res
+              </pre>
+              <button class="close-btn" onclick="closeModal('75i1')">Close</button>
+          </div>
+        </div></a></li>
+        <li> <a href="https://leetcode.com/problems/word-search/"                                        target="_blank">Word Search
+          <div class="icons">
+            <a onclick="toggleSublist('75i2')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="https://videolink.com" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75i2" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75i2val')">Copy</button>
+              <pre id="75i2val">
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+
+        row, col = len(board), len(board[0])
+        N = len(word)
+
+        def go(i, r, c):
+            if i == N:
+                return True
+            if not(-1 < r < row and -1 < c < col and board[r][c] == word[i]):
+                return False
+            ch = board[r][c]
+            board[r][c] = "-"
+            res = go(i+1, r-1,c) or go(i+1, r,c+1) or go(i+1, r,c-1) or go(i+1, r+1,c)
+            board[r][c] = ch
+            return res
+        
+        for r in range(row):
+            for c in range(col):
+                if go(0, r, c):
+                    return True
+        return False
+              </pre>
+              <button class="close-btn" onclick="closeModal('75i2')">Close</button>
+          </div>
+        </div></a></li>
+      </ul> 
+
+      <!-- List10 Tries-->
+      <li onclick="toggleSublist('list10')">Tries</li>
+      <ul id="list10" class="Tries" style="display: none;">
+        <li> <a href="https://leetcode.com/problems/implement-trie-prefix-tree/"                         target="_blank">Implement Trie Prefix Tree</a></li>
+        <li> <a href="https://leetcode.com/problems/design-add-and-search-words-data-structure/"         target="_blank">Design Add And Search Words Data Structure</a></li>
+        <li> <a href="https://leetcode.com/problems/word-search-ii/"                                     target="_blank">Word Search 2</a></li>
+      </ul> 
+
+      <!-- List11 Graph -->
+      <li onclick="toggleSublist('list11')">Graph</li>
+      <ul id="list11" class="Graph" style="display: none;">
+        <li> <a href="https://leetcode.com/problems/number-of-islands/"                                  target="_blank">Number of Islands</a></li>
+        <li> <a href="https://leetcode.com/problems/clone-graph/"                                        target="_blank">Clone Graph</a></li>
+        <li> <a href="https://leetcode.com/problems/pacific-atlantic-water-flow/"                        target="_blank">Pacific Atlantic Water Flow</a></li>
+        <li> <a href="https://leetcode.com/problems/course-schedule/"                                    target="_blank">Course Schedule</a></li>
+        <li> <a href="https://neetcode.io/problems/valid-tree"                                           target="_blank">Graph Valid Tree</a></li>
+        <li> <a href="https://neetcode.io/problems/count-connected-components"                           target="_blank">No of Connected Compenents In An Undirected Graph</a></li>
+      </ul>
+
+      <!-- List12 AdvanceGraph -->
+      <li onclick="toggleSublist('list11')">Advance Graph</li>
+      <ul id="list12" class="Advance Graph" style="display: none;">
+        <li> <a href="https://leetcode.com/problems/alien-dictionary/"                                   target="_blank">Alien Dictionary</a></li>
+      </ul>
+
+      <!-- List13 1DProgramming -->
+      <li onclick="toggleSublist('list13')">1D Programming</li>
+        <ul id="list13" class="1D Programming" style="display: none;">
+          <li> <a href="https://leetcode.com/problems/climbing-stairs/"                                 target="_blank">Climbing Stairs</a></li>
+          <li> <a href="https://leetcode.com/problems/house-robber/"                                    target="_blank">House Robber</a></li>
+          <li> <a href="https://leetcode.com/problems/house-robber-ii/"                                 target="_blank">House Robber 2</a></li>
+          <li> <a href="https://leetcode.com/problems/longest-palindromic-substring/"                   target="_blank">Longest Palindrome Substring</a></li>
+          <li> <a href="https://leetcode.com/problems/palindromic-substrings/"                          target="_blank">Palindrome Substring</a></li>
+          <li> <a href="https://leetcode.com/problems/decode-ways/"                                     target="_blank">Decode Ways</a></li>
+          <li> <a href="https://leetcode.com/problems/coin-change/"                                     target="_blank">Coin Change</a></li>
+          <li> <a href="https://leetcode.com/problems/maximum-product-subarray/"                        target="_blank">Maximum Product Subarray</a></li>
+          <li> <a href="https://leetcode.com/problems/word-break/"                                      target="_blank">Word Break</a></li>
+          <li> <a href="https://leetcode.com/problems/longest-increasing-subsequence/"                  target="_blank">Longest Increasing Subsequence</a></li>
+        </ul>
+
+      <!-- List14 2DProgramming -->
+      <li onclick="toggleSublist('list14')">2D Programming</li>
+        <ul id="list14" class="2D Programming" style="display: none;">
+          <li> <a href="https://leetcode.com/problems/unique-paths/"                                    target="_blank">Unique Paths</a></li>
+          <li> <a href="https://leetcode.com/problems/longest-common-subsequence/"                      target="_blank">Longest Common Subsequence</a></li>
+        </ul>
+
+
+      <!-- List15 Greedy -->
+      <li onclick="toggleSublist('list15')">Greedy</li>
+      <ul id="list15" class="Greedy" style="display: none;">
+        <li> <a href="https://leetcode.com/problems/maximum-subarray/"                                 target="_blank">Maximum Subarray</a></li>
+        <li> <a href="https://leetcode.com/problems/jump-game/"                                        target="_blank">Jump Game</a></li>
+      </ul>
+
+      <!-- List16 Intervals -->
+      <li onclick="toggleSublist('list16')">Intervals</li>
+      <ul id="list16" class="Intervals" style="display: none;">
+        <li> <a href="https://leetcode.com/problems/insert-interval/"                                  target="_blank">Insert Intervals</a></li>
+        <li> <a href="https://leetcode.com/problems/merge-intervals/"                                  target="_blank">Merge Intervals</a></li>
+        <li> <a href="https://leetcode.com/problems/non-overlapping-intervals/"                        target="_blank">Non Overlapping Intervals</a></li>
+        <li> <a href="https://leetcode.com/problems/meeting-rooms/"                                    target="_blank">Meeting Room</a></li>
+        <li> <a href="https://leetcode.com/problems/meeting-rooms-ii/"                                 target="_blank">Meeting Room 2</a></li>
+      </ul>
+
+      <!-- List17 Math & Geometry -->
+      <li onclick="toggleSublist('list17')">Math & Geometry</li>
+      <ul id="list17" class="Math & Geometry" style="display: none;">
+        <li> <a href="https://leetcode.com/problems/rotate-image/"                                    target="_blank">Rotate Image</a></li>
+        <li> <a href="https://leetcode.com/problems/spiral-matrix/"                                   target="_blank">Spiral Matrix</a></li>
+        <li> <a href="https://leetcode.com/problems/set-matrix-zeroes/"                               target="_blank">Set Matrix Zeroes</a></li>
+      </ul>
+
+      <!-- List18 Bit -->
+      <li onclick="toggleSublist('list18')">Bit Manipulation</li>
+      <ul id="list18" class="Bit Manipulation" style="display: none;">
+        <li> <a href="https://leetcode.com/problems/number-of-1-bits/"                                target="_blank">Number of 1 Bits</a></li>
+        <li> <a href="https://leetcode.com/problems/counting-bits/"                                   target="_blank">Counting Bits</a></li>
+        <li> <a href="https://leetcode.com/problems/reverse-bits/"                                    target="_blank">Reverse Bits</a></li>
+        <li> <a href="https://leetcode.com/problems/missing-number/"                                  target="_blank">Missing Number</a></li>
+        <li> <a href="https://leetcode.com/problems/sum-of-two-integers/"                             target="_blank">Sum of 2 Integer</a></li>
+      </ul>
+
+    </div>
+  </ul>
+
+
+  <script>
+    function toggleSublist(sublistId) {
+      const sublist = document.getElementById(sublistId);
+      sublist.style.display = sublist.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function closeModal(idd) {
+        document.getElementById(idd).style.display = "none";
+    }
+
+    function openModal(idd) {
+        document.getElementById(idd).style.display = "block";
+    }
+
+    function copyToClipboard (idd) {
+      var res = document.getElementById(idd);
+      navigator.clipboard.writeText(res.textContent);
+    }; 
+  </script>
+</body>
+</html>
+
