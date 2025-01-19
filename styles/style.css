@@ -39,7 +39,7 @@ h1 {
 
 .list > li:hover {
   background-color: #313637;
-  color: blue;
+  color: #7CEEB;
 }
 
 .sublist {
@@ -67,7 +67,7 @@ a {
 }
 
 a:hover {
-  color: blue;
+  color: #7CEEB;
 }
 
 /* ---------------------------------popup content-------------------------- */
@@ -128,7 +128,7 @@ pre {
         color: #000;
     }
 .icons a:hover {
-    color: blue;
+    color: #7CEEB;
 }
 
 /* ul {
