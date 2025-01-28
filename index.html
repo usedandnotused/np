@@ -1193,9 +1193,134 @@ class Solution:
       <!-- List10 Tries-->
       <li onclick="toggleSublist('list10')">Tries</li>
       <ul id="list10" class="Tries" style="display: none;">
-        <li> <a href="https://leetcode.com/problems/implement-trie-prefix-tree/"                         target="_blank">Implement Trie Prefix Tree</a></li>
-        <li> <a href="https://leetcode.com/problems/design-add-and-search-words-data-structure/"         target="_blank">Design Add And Search Words Data Structure</a></li>
-        <li> <a href="https://leetcode.com/problems/word-search-ii/"                                     target="_blank">Word Search 2</a></li>
+        <li> <a href="https://leetcode.com/problems/implement-trie-prefix-tree/"                                        target="_blank">Implement Trie Prefix Tree
+          <div class="icons">
+            <a onclick="toggleSublist('75j1')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75j1" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75j1val')">Copy</button>
+              <pre id="75j1val">
+class Trie:
+    def __init__(self):
+        self.root = {}
+
+    def insert(self, word: str) -> None:
+        cur = self.root
+        for c in word:
+            if c not in cur:
+                cur[c] = {}
+            cur = cur[c]
+        cur["#"] = {}
+
+    def search(self, word: str) -> bool:
+        cur = self.root
+        for c in word:
+            if c not in cur:
+                return False
+            cur = cur[c]
+        return '#' in cur
+        
+    def startsWith(self, prefix: str) -> bool:
+        cur = self.root
+        for c in prefix:
+            if c not in cur:
+                return False
+            cur = cur[c]
+        return True          
+              </pre>
+              <button class="close-btn" onclick="closeModal('75j1')">Close</button>
+          </div>
+        </div></a></li>
+        <li> <a href="https://leetcode.com/problems/design-add-and-search-words-data-structure/"                                        target="_blank">Design Add And Search Words Data Structure
+          <div class="icons">
+            <a onclick="toggleSublist('75j2')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="https://videolink.com" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75j2" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75j2val')">Copy</button>
+              <pre id="75j2val">
+class WordDictionary:
+    def __init__(self):
+        self.root = {}
+
+    def addWord(self, word: str) -> None:
+        cur = self.root
+        for c in word:
+            if c not in cur:
+                cur[c] = {}
+            cur = cur[c]
+        cur['1'] = {}
+        
+
+    def search(self, word: str) -> bool:
+        def dfs(i, cur):
+            if i == len(word):
+                return '1' in cur
+            if word[i] == '.':
+                for k in cur:
+                    if dfs(i+1, cur[k]):
+                        return True
+                return False
+            return word[i] in cur and dfs(i+1, cur[word[i]])
+        return dfs(0, self.root)           
+              </pre>
+              <button class="close-btn" onclick="closeModal('75j2')">Close</button>
+          </div>
+        </div></a></li>
+        <li> <a href="https://leetcode.com/problems/word-search-ii/"                                        target="_blank">Word Search 2
+          <div class="icons">
+            <a onclick="toggleSublist('75j3')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75j3" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75j3val')">Copy</button>
+              <pre id="75j3val">
+class Solution:
+    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+        A = {}
+        for w in words:
+            cur = A
+            for c in w:
+                if c not in cur:
+                    cur[c] = {}
+                cur = cur[c]
+            cur['#'] = w
+        
+        def dfs(r, c, cur):
+            if not (-1 < r < row and -1 < c < col and board[r][c] in cur):
+                return []
+            ch = board[r][c]
+            board[r][c] = '-'
+            res = []
+            if '#' in cur[ch]:
+                res += [cur[ch]['#']]
+            
+            for dr, dc in [(r-1, c), (r, c+1), (r+1, c), (r, c-1)]:
+                res += dfs(dr, dc, cur[ch])
+
+            board[r][c] = ch
+            return res
+        
+        row, col = len(board), len(board[0])
+        res = []
+        for r in range(row):
+            for c in range(col):
+                res += dfs(r, c, A)
+        return list(set(res))        
+              </pre>
+              <button class="close-btn" onclick="closeModal('75j3')">Close</button>
+          </div>
+        </div></a></li>
       </ul> 
 
       <!-- List11 Graph -->
