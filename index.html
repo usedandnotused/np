@@ -764,33 +764,319 @@ class Solution:
       <!-- List7 Trees -->
       <li onclick="toggleSublist('list7')">Tree</li>
         <ul id="list7" class="Trees" style="display: none;">
-          <li> <a href="https://leetcode.com/problems/invert-binary-tree/"                                target="_blank">Invert Binary Tree</a></li>
-           <li> <a href=""                            target="_blank">
+           <li> <a href="https://leetcode.com/problems/invert-binary-tree/"                            target="_blank">Invert Binary Tree<
               <div class="icons">
                 <a onclick="toggleSublist('75g1')" title='Code'>
                     <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
                 </a>
-                <a href="ut" target="_blank" title="Youtube">
+                <a href="https://youtu.be/_hkGH6YT9Pk" target="_blank" title="Youtube">
                     <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
                 </a>
                 <div id="75g1" class="popup">
                   <button class="copyClip" onclick="copyToClipboard('75g1val')">Copy</button>
                   <pre id="75g1val">
-gg
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if not root:
+            return None
+        root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
+        return root
                   </pre>
                   <button class="close-btn" onclick="closeModal('75g1')">Close</button>
               </div>
             </div></a></li>
-          <li> <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/"                      target="_blank">Maximum Depth of Binary Tree</a></li>
-          <li> <a href="https://leetcode.com/problems/same-tree/"                                         target="_blank">Same Tree</a></li>
-          <li> <a href="https://leetcode.com/problems/subtree-of-another-tree/"                           target="_blank">Subtree of Another Tree</a></li>
-          <li> <a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"    target="_blank">Lowest Common Ancestor BS Tree</a></li>
-          <li> <a href="https://leetcode.com/problems/binary-tree-level-order-traversal/"                 target="_blank">B-Tree Level Order Traversal</a></li>
-          <li> <a href="https://leetcode.com/problems/validate-binary-search-tree/"                       target="_blank">Validate BS-Tree</a></li>
-          <li> <a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/"                     target="_blank">Kth Smallest Element in BS-Tree</a></li>
-          <li> <a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/" target="_blank">Construct B-Tree From Preorder and Inorder Traversal</a></li>
-          <li> <a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/"                      target="_blank">B-Tree Maximum Path Sum</a></li>
-          <li> <a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"             target="_blank">Serialize and Deserialize B-Tree</a></li>
+          <li> <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/"                            target="_blank">Maximum Depth of Binary Tree
+              <div class="icons">
+                <a onclick="toggleSublist('75g2')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/8ZyaDqvAD-o" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75g2" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g2val')">Copy</button>
+                  <pre id="75g2val">
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        q = []
+        if root:
+            q = [root]
+        res = 0
+        while q:
+            nQ = []
+            res += 1
+            for cur in q:
+                if cur.left:
+                    nQ.append(cur.left)
+                if cur.right:
+                    nQ.append(cur.right)
+            q = nQ
+        return res
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75g2')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/same-tree/"                            target="_blank">Same Tree
+              <div class="icons">
+                <a onclick="toggleSublist('75g3')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/A24tXhaq1SQ" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75g3" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g3val')">Copy</button>
+                  <pre id="75g3val">
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if not p or not q:
+            return not p and not q
+        return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right) 
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75g3')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/subtree-of-another-tree/"                            target="_blank">Subtree of Another Tree
+              <div class="icons">
+                <a onclick="toggleSublist('75g4')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/8BwkqSM1iDE" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75g4" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g4val')">Copy</button>
+                  <pre id="75g4val">
+class Solution:
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        def dfs(a, b):
+            if not b:
+                return True
+            if not a:
+                return False
+            if a.val == b.val and self.isSameTree(a, b):
+                return True
+            return dfs(a.left, subRoot) or dfs(a.right, subRoot)
+        return dfs(root, subRoot)
+    
+    def isSameTree(self, a, b):
+        if not a and not b:
+            return True
+        if a and b and a.val == b.val:
+            return self.isSameTree(a.left, b.left) and self.isSameTree(a.right, b.right) 
+        return False
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75g4')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"                            target="_blank">Lowest Common Ancestor BS Tree
+              <div class="icons">
+                <a onclick="toggleSublist('75g5')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/V90a5FBUsvA" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75g5" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g5val')">Copy</button>
+                  <pre id="75g5val">
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        self.p, self.q = min(p.val, q.val), max(p.val, q.val)
+        def dfs(node):
+            if  self.p <= node.val <= self.q:
+                return node
+            if node.val < self.p:
+                return dfs(node.right)
+            return dfs(node.left)
+        return dfs(root)
+        
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75g5')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/binary-tree-level-order-traversal/"                            target="_blank">B-Tree Level Order Traversal
+              <div class="icons">
+                <a onclick="toggleSublist('75g6')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/GKjRAyktfOg" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75g6" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g6val')">Copy</button>
+                  <pre id="75g6val">
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
+        q = deque()
+        q.append(root)
+        res = []
+        while q:
+            sub = []
+            for _ in range(len(q)):
+                cur = q.popleft()
+                sub.append(cur.val)
+                if cur.left:
+                    q.append(cur.left)
+                if cur.right:
+                    q.append(cur.right)
+            res.append(sub)
+        return res
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75g6')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/validate-binary-search-tree/"                            target="_blank">Validate BS-Tree
+              <div class="icons">
+                <a onclick="toggleSublist('75g7')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/_hkGH6YT9Pk" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75g7" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g7val')">Copy</button>
+                  <pre id="75g7val">
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        def dfs(left, node, right):
+            if not node:
+                return True
+            if not left < node.val < right:
+                return False
+            return dfs(left, node.left, node.val) and dfs(node.val, node.right, right)
+        return dfs(-math.inf, root, math.inf)
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75g7')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/"                            target="_blank">Kth Smallest Element in BS-Tree
+              <div class="icons">
+                <a onclick="toggleSublist('75g7')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/WPsoS8L8nIw" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75g7" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g7val')">Copy</button>
+                  <pre id="75g7val">
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        stack = []
+        cur = root
+        while k:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            newCur = stack.pop()
+            k -= 1
+            if k == 0:
+                return newCur.val
+            cur = newCur.right
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75g7')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"                            target="_blank">Construct B-Tree From Preorder and Inorder Traversal
+              <div class="icons">
+                <a onclick="toggleSublist('75g8')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/yBMrEvWJ0W4" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75g8" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g8val')">Copy</button>
+                  <pre id="75g8val">
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:        
+        H = {n:i for i, n in enumerate(inorder)}
+        N = len(preorder)
+        # self.i = 0
+        
+        def dfs(start, end, i):
+            if start > end:
+                return None, i
+            node = TreeNode(preorder[i])
+            indx = H[node.val]
+            node.left, i = dfs(start, indx-1, i + 1)
+            node.right, i = dfs(indx+1,end, i)
+            return node, i
+        
+        return dfs(0, N-1, 0)[0]
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75g8')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/"                            target="_blank">B-Tree Maximum Path Sum
+              <div class="icons">
+                <a onclick="toggleSublist('75g9')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/99TxVW3YdQM" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75g9" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g9val')">Copy</button>
+                  <pre id="75g9val">
+class Solution:
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+        def dfs(node):
+            if not node:
+                return [-inf, 0]
+            left = dfs(node.left)
+            right = dfs(node.right)
+            a, b = max(0, left[1]), max(0, right[1])
+            return max(left[0], a+node.val+b, right[0]), max(a+node.val, b+node.val)
+        return dfs(root)[0]
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75g9')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"                            target="_blank">Serialize and Deserialize B-Tree
+              <div class="icons">
+                <a onclick="toggleSublist('75g10')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/R4MXxvshB_s" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75g10" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g10val')">Copy</button>
+                  <pre id="75g10val">
+class Codec:
+    def serialize(self, root):
+        res = []
+        def dfs(node):
+            if not node:
+                res.append('N')
+                return
+            res.append(str(node.val))
+            dfs(node.left)
+            dfs(node.right)
+        dfs(root)
+        return ','.join(res)
+
+    def deserialize(self, data):
+        data = data.split(',')
+        self.i = 0
+        def dfs():
+            if data[self.i] == 'N':
+                self.i += 1
+                return
+            node = TreeNode(int(data[self.i]))
+            self.i += 1
+            node.left = dfs()
+            node.right = dfs()
+            return node
+        return dfs()
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75g10')">Close</button>
+              </div>
+            </div></a></li>
         </ul>
 
       <!-- List8 Heap / Priority Queue-->
@@ -879,7 +1165,6 @@ class Solution:
               <pre id="75i2val">
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-
         row, col = len(board), len(board[0])
         N = len(word)
 
