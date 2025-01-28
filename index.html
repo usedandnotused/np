@@ -411,39 +411,62 @@ class Solution:
                   <button class="close-btn" onclick="closeModal('75c1')">Close</button>
               </div>
             </div></a></li>
-          <li> <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/"      target="_blank">Longest Substing Without Repeating Characters</a></li>
-          <li> <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"                                target="_blank">Best Time to Buy And Sell Stock
+          <li> <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/"                                target="_blank">Longest Substing Without Repeating Characters
               <div class="icons">
-                <a onclick="toggleSublist('75 3a1')" title='Code'>
+                <a onclick="toggleSublist('75c2')" title='Code'>
                     <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
                 </a>
-                <a href="4utubelink" target="_blank" title="Youtube">
+                <a href="https://youtu.be/36hILBxIyl8" target="_blank" title="Youtube">
                     <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
                 </a>
-                <div id="755a1" class="popup">
-                  <button class="copyClip" onclick="copyToClipboard('75a1val6')">Copy</button>
-                  <pre id="75a1val7">
-8. Code
+                <div id="75c2" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75c2val')">Copy</button>
+                  <pre id="75c2val">
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        hashmap = {}
+        l = res = 0
+        for r in range(len(s)):
+            if s[r] in hashmap:
+                l = max(l,hashmap[s[r]] + 1)
+            res = max(res, r - l + 1)
+            hashmap[s[r]] = r
+        return res
                   </pre>
-                  <button class="close-btn" onclick="closeModal('75a19')">Close</button>
+                  <button class="close-btn" onclick="closeModal('75c2')">Close</button>
               </div>
             </div></a></li>
-          <li> <a href="https://leetcode.com/problems/longest-repeating-character-replacement/"             target="_blank">Longest Repeating Character Replacement</a></li>
-          <li> <a href="https://leetcode.com/problems/minimum-window-substring/"                            target="_blank">Minimum Window Substring</a></li>
-          <li> <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"                                target="_blank">Best Time to Buy And Sell Stock
+          <li> <a href="https://leetcode.com/problems/minimum-window-substring/"                            target="_blank">Minimum Window Substring
               <div class="icons">
-                <a onclick="toggleSublist('75 3a1')" title='Code'>
+                <a onclick="toggleSublist('75c3')" title='Code'>
                     <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
                 </a>
-                <a href="4utubelink" target="_blank" title="Youtube">
+                <a href="https://youtu.be/-mk5SqKNfpc" target="_blank" title="Youtube">
                     <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
                 </a>
-                <div id="755a1" class="popup">
-                  <button class="copyClip" onclick="copyToClipboard('75a1val6')">Copy</button>
-                  <pre id="75a1val7">
-8. Code
+                <div id="75c3" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75c3val')">Copy</button>
+                  <pre id="75c3val">
+8.class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        hashmapT = Counter(t)
+        res = s+'a'
+        l = 0
+        hashmapC = Counter()
+        needToMatch = len(hashmapT)
+        for r in range(len(s)):
+            hashmapC[s[r]] += 1
+            needToMatch -= hashmapC[s[r]] == hashmapT[s[r]]
+            while needToMatch == 0:
+                if r - l + 1 < len(res):
+                    res = s[l:r+1]
+                needToMatch += hashmapC[s[l]] == hashmapT[s[l]]
+                hashmapC[s[l]] -= 1
+                l += 1
+        return res if len(res) != len(s)+1 else ''
+            
                   </pre>
-                  <button class="close-btn" onclick="closeModal('75a19')">Close</button>
+                  <button class="close-btn" onclick="closeModal('75c3')">Close</button>
               </div>
             </div></a></li>
         </ul>   
@@ -451,13 +474,63 @@ class Solution:
       <!-- List4 Stack-->
       <li onclick="toggleSublist('list4')">Stack</li>
         <ul id="list4" class="Stack" style="display: none;">
-          <li> <a href="https://leetcode.com/problems/valid-parentheses/"                                   target="_blank">Valid Parentheses</a></li>
+          <li> <a href="https://leetcode.com/problems/valid-parentheses/"                            target="_blank">Valid Parentheses
+              <div class="icons">
+                <a onclick="toggleSublist('75d1')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/bXjSJ3Npw7g" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75d1" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75d1val')">Copy</button>
+                  <pre id="75d1val">
+class Solution:
+    def isValid(self, s: str) -> bool:
+        if len(s) & 1:
+            return False
+            
+        hashmap = {
+            ']':'[',
+            ')':'(',
+            '}':'{'
+        }
+
+        stack = []
+        for c in s:
+            if c not in hashmap:
+                stack.append(c)
+            elif stack and stack[-1] == hashmap[c]:
+                stack.pop()
+            else:
+                return False
+        return not stack
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75d1')">Close</button>
+              </div>
+            </div></a></li>
         </ul> 
         
       <!-- List5 BinarySearch-->
       <li onclick="toggleSublist('list5')">Binary Search</li>
         <ul id="list5" class="Binary Search" style="display: none;">
           <li> <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"                target="_blank">Find Minimum in Rotated Sorted Array</a></li>
+          <li> <a href="https://leetcode.com/problems/minimum-window-substring/"                            target="_blank">Minimum Window Substring
+              <div class="icons">
+                <a onclick="toggleSublist('75 3a1')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="4utubelink" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="755a1" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75a1val6')">Copy</button>
+                  <pre id="75a1val7">
+8. Code
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75a19')">Close</button>
+              </div>
+            </div></a></li>
           <li> <a href="https://leetcode.com/problems/search-in-rotated-sorted-array/"                      target="_blank">Search in Rotated Sorted Array</a></li>
         </ul> 
 
