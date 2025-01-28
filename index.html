@@ -1325,17 +1325,233 @@ class Solution:
       <li onclick="toggleSublist('list11')">Graph</li>
       <ul id="list11" class="Graph" style="display: none;">
         <li> <a href="https://leetcode.com/problems/number-of-islands/"                                  target="_blank">Number of Islands</a></li>
-        <li> <a href="https://leetcode.com/problems/clone-graph/"                                        target="_blank">Clone Graph</a></li>
-        <li> <a href="https://leetcode.com/problems/pacific-atlantic-water-flow/"                        target="_blank">Pacific Atlantic Water Flow</a></li>
-        <li> <a href="https://leetcode.com/problems/course-schedule/"                                    target="_blank">Course Schedule</a></li>
-        <li> <a href="https://neetcode.io/problems/valid-tree"                                           target="_blank">Graph Valid Tree</a></li>
-        <li> <a href="https://neetcode.io/problems/count-connected-components"                           target="_blank">No of Connected Compenents In An Undirected Graph</a></li>
+        <li> <a href="https://leetcode.com/problems/word-search-ii/"                                        target="_blank">Word Search 2
+          <div class="icons">
+            <a onclick="toggleSublist('75k1')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75k1" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75k1val')">Copy</button>
+              <pre id="75k1val">
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        row, col = len(grid), len(grid[0])
+        res = 0
+
+        def dfs(r, c):
+            if not (-1 < r < row and -1 < c < col and grid[r][c] == '1'):
+                return
+            grid[r][c] = '0'
+            for dr, dc in [(r-1, c), (r, c+1), (r+1, c), (r, c-1)]:
+                dfs(dr, dc)
+        
+        for r in range(row):
+            for c in range(col):
+                if grid[r][c] == '1':
+                    res += 1
+                    dfs(r, c)
+        return res
+              </pre>
+              <button class="close-btn" onclick="closeModal('75k1')">Close</button>
+          </div>
+        </div></a></li>
+        <li> <a href="https://leetcode.com/problems/clone-graph"                                        target="_blank">Clone Graph
+          <div class="icons">
+            <a onclick="toggleSublist('75k2')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75k2" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75k2val')">Copy</button>
+              <pre id="75k2val">
+class Solution:
+    def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
+        cache = {None:None}
+        def go(node):
+            if node not in cache:
+                cache[node] = Node(node.val)
+                for nei in node.neighbors:
+                    cache[node].neighbors.append(go(nei))
+            return cache[node]
+        return go(node)  
+              </pre>
+              <button class="close-btn" onclick="closeModal('75k2')">Close</button>
+          </div>
+        </div></a></li>
+        <li> <a href="https://leetcode.com/problems/pacific-atlantic-water-flow/"                                        target="_blank">Pacific Atlantic Water Flow
+          <div class="icons">
+            <a onclick="toggleSublist('75k3')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75k3" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75k3val')">Copy</button>
+              <pre id="75k3val">
+class Solution:
+    def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
+        visitedA = set()
+        visitedP = set()
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        def dfs(prev, r, c, state):
+            if not(-1 < r < row and -1 < c < col and (r, c) not in state and heights[r][c] >= prev):
+                return
+            prev = heights[r][c]
+            state.add((r, c))
+            for dr, dc in directions:
+                dfs(prev, dr+r, dc+c, state)
+
+        row, col = len(heights), len(heights[0])
+        for r in range(row):
+            dfs(-inf, r, 0, visitedP)
+            dfs(-inf, r, col-1, visitedA)
+
+        for c in range(col):
+            dfs(-inf, 0, c, visitedP)
+            dfs(-inf, row-1, c, visitedA)
+
+
+        res = []
+        for k in visitedA:
+            if k in visitedP:
+                res.append(k)
+        return res
+              
+              </pre>
+              <button class="close-btn" onclick="closeModal('75k3')">Close</button>
+          </div>
+        </div></a></li>
+        <li> <a href="https://leetcode.com/problems/course-schedule/"                                        target="_blank">Course Schedule
+          <div class="icons">
+            <a onclick="toggleSublist('75k4')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75k4" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75k4val')">Copy</button>
+              <pre id="75k4val">
+class Solution:
+    def canFinish(self, N: int, pre: List[List[int]]) -> bool:
+        adj = defaultdict(list)
+        for u, v in pre:
+            adj[u].append(v)
+        visited = [N+1] * N
+        def dfs(node):
+            if visited[node] == N+1:
+                visited[node] = False #cycle
+                for nei in adj[node]:
+                    if not dfs(nei):
+                        return False
+                visited[node] = True #valid
+            return visited[node]
+        for n in range(N):
+            if not dfs(n):
+                return False
+        return True      
+              </pre>
+              <button class="close-btn" onclick="closeModal('75k4')">Close</button>
+          </div>
+        </div></a></li>
+        <li> <a href="https://neetcode.io/problems/valid-tree"                                        target="_blank">Graph Valid Tree
+          <div class="icons">
+            <a onclick="toggleSublist('75k5')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75k5" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75k5val')">Copy</button>
+              <pre id="75k5val">
+class Solution:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        adj = defaultdict(list)
+        for u, v in edges:
+            adj[u].append(v)
+            adj[v].append(u)
+        
+        visited = set()
+        q = [[-1, 0]] # par, node
+        while q:
+            newQ = []
+            for par, node in q:
+                if node in visited:
+                    return False
+                visited.add(node)
+                for nei in adj[node]:
+                    if par == nei: continue
+                    newQ.append([node, nei])
+            q = newQ
+        return len(visited) == n      
+              </pre>
+              <button class="close-btn" onclick="closeModal('75k5')">Close</button>
+          </div>
+        </div></a></li>
+        <li> <a href="https://neetcode.io/problems/count-connected-components"                                        target="_blank">No of Connected Compenents In An Undirected Graph
+          <div class="icons">
+            <a onclick="toggleSublist('75k6')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75k6" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75k6val')">Copy</button>
+              <pre id="75k6val">
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        adj = [[] for _ in range(n)]
+        visit = [False] * n
+        for u, v in edges:
+            adj[u].append(v)
+            adj[v].append(u)
+
+        def dfs(node):
+            for nei in adj[node]:
+                if not visit[nei]:
+                    visit[nei] = True
+                    dfs(nei)
+        
+        res = 0
+        for node in range(n):
+            if not visit[node]:
+                visit[node] = True
+                dfs(node)
+                res += 1
+        return res      
+              </pre>
+              <button class="close-btn" onclick="closeModal('75k6')">Close</button>
+          </div>
+        </div></a></li>
       </ul>
 
       <!-- List12 AdvanceGraph -->
       <li onclick="toggleSublist('list11')">Advance Graph</li>
       <ul id="list12" class="Advance Graph" style="display: none;">
-        <li> <a href="https://leetcode.com/problems/alien-dictionary/"                                   target="_blank">Alien Dictionary</a></li>
+        <li> <a href="https://leetcode.com/problems/alien-dictionary/"                                        target="_blank">Alien Dictionary
+          <div class="icons">
+            <a onclick="toggleSublist('75l1')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75l1" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75l1val')">Copy</button>
+              <pre id="75l1val">
+      
+              </pre>
+              <button class="close-btn" onclick="closeModal('75l1')">Close</button>
+          </div>
+        </div></a></li>
       </ul>
 
       <!-- List13 1DProgramming -->
