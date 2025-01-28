@@ -293,7 +293,7 @@ class Solution:
       <!-- List2 2Poniter-->
       <li onclick="toggleSublist('list2')">Two Pointer</li>
         <ul id="list2" class="Two Pointers" style="display: none;">
-            <li> <a href="https://leetcode.com/problems/valid-palindrome/"                                target="_blank">2. NameTag
+            <li> <a href="https://leetcode.com/problems/valid-palindrome/"                                target="_blank">Valid Palindrome
               <div class="icons">
                 <a onclick="toggleSublist('75b2')" title='Code'>
                     <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
@@ -321,7 +321,42 @@ class Solution:
                   <button class="close-btn" onclick="closeModal('75b1')">Close</button>
               </div>
             </div></a></li>
-          <li> <a href="https://leetcode.com/problems/3sum/"                                                target="_blank">3 Sum</a></li>
+          <li> <a href="https://leetcode.com/problems/3sum/"                                target="_blank">3 Sum
+              <div class="icons">
+                <a onclick="toggleSublist('75b2')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/UQYZ0nm24xI" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75b2" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75b2val')">Copy</button>
+                  <pre id="75b2val">
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        N = len(nums)
+        res = []
+        for i in range(N-2):
+            if i != 0 and nums[i-1] == nums[i]: continue
+            l, r = i+1, N-1
+            while l < r:
+                v = nums[i] + nums[l] + nums[r]
+                if v < 0:
+                    l += 1
+                elif 0 < v:
+                    r -= 1
+                else:
+                    res.append([nums[i], nums[l], nums[r]])
+                    while l + 1 < r and nums[l] == nums[l+1]:
+                        l += 1
+                    l += 1
+        return res
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75b2')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/container-with-most-water/"                           target="_blank">Container With Most Water</a></li>
           <li> <a href="1.problink"                                target="_blank">2. NameTag
               <div class="icons">
                 <a onclick="toggleSublist('75 3a1')" title='Code'>
@@ -338,7 +373,6 @@ class Solution:
                   <button class="close-btn" onclick="closeModal('75a19')">Close</button>
               </div>
             </div></a></li>
-          <li> <a href="https://leetcode.com/problems/container-with-most-water/"                           target="_blank">Container With Most Water</a></li>
         </ul>  
       
       <!-- List3 SlindingWindow-->
