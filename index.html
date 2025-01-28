@@ -954,15 +954,15 @@ class Solution:
             </div></a></li>
           <li> <a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/"                            target="_blank">Kth Smallest Element in BS-Tree
               <div class="icons">
-                <a onclick="toggleSublist('75g7')" title='Code'>
+                <a onclick="toggleSublist('75g8')" title='Code'>
                     <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
                 </a>
                 <a href="https://youtu.be/WPsoS8L8nIw" target="_blank" title="Youtube">
                     <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
                 </a>
-                <div id="75g7" class="popup">
-                  <button class="copyClip" onclick="copyToClipboard('75g7val')">Copy</button>
-                  <pre id="75g7val">
+                <div id="75g8" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g8val')">Copy</button>
+                  <pre id="75g8val">
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         stack = []
@@ -977,20 +977,20 @@ class Solution:
                 return newCur.val
             cur = newCur.right
                   </pre>
-                  <button class="close-btn" onclick="closeModal('75g7')">Close</button>
+                  <button class="close-btn" onclick="closeModal('75g8')">Close</button>
               </div>
             </div></a></li>
           <li> <a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"                            target="_blank">Construct B-Tree From Preorder and Inorder Traversal
               <div class="icons">
-                <a onclick="toggleSublist('75g8')" title='Code'>
+                <a onclick="toggleSublist('75g9')" title='Code'>
                     <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
                 </a>
                 <a href="https://youtu.be/yBMrEvWJ0W4" target="_blank" title="Youtube">
                     <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
                 </a>
-                <div id="75g8" class="popup">
-                  <button class="copyClip" onclick="copyToClipboard('75g8val')">Copy</button>
-                  <pre id="75g8val">
+                <div id="75g9" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g9val')">Copy</button>
+                  <pre id="75g9val">
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:        
         H = {n:i for i, n in enumerate(inorder)}
@@ -1008,20 +1008,20 @@ class Solution:
         
         return dfs(0, N-1, 0)[0]
                   </pre>
-                  <button class="close-btn" onclick="closeModal('75g8')">Close</button>
+                  <button class="close-btn" onclick="closeModal('75g9')">Close</button>
               </div>
             </div></a></li>
           <li> <a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/"                            target="_blank">B-Tree Maximum Path Sum
               <div class="icons">
-                <a onclick="toggleSublist('75g9')" title='Code'>
+                <a onclick="toggleSublist('75g10')" title='Code'>
                     <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
                 </a>
                 <a href="https://youtu.be/99TxVW3YdQM" target="_blank" title="Youtube">
                     <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
                 </a>
-                <div id="75g9" class="popup">
-                  <button class="copyClip" onclick="copyToClipboard('75g9val')">Copy</button>
-                  <pre id="75g9val">
+                <div id="75g10" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g10val')">Copy</button>
+                  <pre id="75g10val">
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
         def dfs(node):
@@ -1033,20 +1033,20 @@ class Solution:
             return max(left[0], a+node.val+b, right[0]), max(a+node.val, b+node.val)
         return dfs(root)[0]
                   </pre>
-                  <button class="close-btn" onclick="closeModal('75g9')">Close</button>
+                  <button class="close-btn" onclick="closeModal('75g10')">Close</button>
               </div>
             </div></a></li>
           <li> <a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"                            target="_blank">Serialize and Deserialize B-Tree
               <div class="icons">
-                <a onclick="toggleSublist('75g10')" title='Code'>
+                <a onclick="toggleSublist('75g11')" title='Code'>
                     <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
                 </a>
                 <a href="https://youtu.be/R4MXxvshB_s" target="_blank" title="Youtube">
                     <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
                 </a>
-                <div id="75g10" class="popup">
-                  <button class="copyClip" onclick="copyToClipboard('75g10val')">Copy</button>
-                  <pre id="75g10val">
+                <div id="75g11" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g11val')">Copy</button>
+                  <pre id="75g11val">
 class Codec:
     def serialize(self, root):
         res = []
@@ -1074,7 +1074,7 @@ class Codec:
             return node
         return dfs()
                   </pre>
-                  <button class="close-btn" onclick="closeModal('75g10')">Close</button>
+                  <button class="close-btn" onclick="closeModal('75g11')">Close</button>
               </div>
             </div></a></li>
         </ul>
