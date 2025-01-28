@@ -295,7 +295,7 @@ class Solution:
         <ul id="list2" class="Two Pointers" style="display: none;">
             <li> <a href="https://leetcode.com/problems/valid-palindrome/"                                target="_blank">Valid Palindrome
               <div class="icons">
-                <a onclick="toggleSublist('75b2')" title='Code'>
+                <a onclick="toggleSublist('75b1')" title='Code'>
                     <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
                 </a>
                 <a href="https://youtu.be/kyeWbvDdFaY" target="_blank" title="Youtube">
@@ -356,8 +356,63 @@ class Solution:
                   <button class="close-btn" onclick="closeModal('75b2')">Close</button>
               </div>
             </div></a></li>
-          <li> <a href="https://leetcode.com/problems/container-with-most-water/"                           target="_blank">Container With Most Water</a></li>
-          <li> <a href="1.problink"                                target="_blank">2. NameTag
+          <li> <a href="https://leetcode.com/problems/container-with-most-water/"                                target="_blank">Container With Most Water
+              <div class="icons">
+                <a onclick="toggleSublist('75b3')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/eKyoH9_L_-c" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75b3" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75b3val')">Copy</button>
+                  <pre id="75b3val">
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        res = 0
+        l, r = 0, len(height)-1
+        while l < r:
+            heit = min(height[l], height[r])
+            res = max(res, heit * (r-l))
+            if height[l] < height[r]:
+                l += 1
+            else:
+                r -= 1
+        return res
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75b3')">Close</button>
+              </div>
+            </div></a></li>
+        </ul>  
+      
+      <!-- List3 SlindingWindow-->
+      <li onclick="toggleSublist('list3')">Sliding Window</li>
+        <ul id="list3" class="Sliding Window" style="display: none;">
+          <li> <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"                                target="_blank">Best Time to Buy And Sell Stock
+              <div class="icons">
+                <a onclick="toggleSublist('75c1')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/oVPmSxgeEN0" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75c1" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75c1val')">Copy</button>
+                  <pre id="75c1val">
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        res = 0
+        bought = inf
+        for n in prices:
+            res = max(res, n - bought)
+            bought = min(bought, n)
+        return res
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75c1')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/"      target="_blank">Longest Substing Without Repeating Characters</a></li>
+          <li> <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"                                target="_blank">Best Time to Buy And Sell Stock
               <div class="icons">
                 <a onclick="toggleSublist('75 3a1')" title='Code'>
                     <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
@@ -373,15 +428,24 @@ class Solution:
                   <button class="close-btn" onclick="closeModal('75a19')">Close</button>
               </div>
             </div></a></li>
-        </ul>  
-      
-      <!-- List3 SlindingWindow-->
-      <li onclick="toggleSublist('list3')">Sliding Window</li>
-        <ul id="list3" class="Sliding Window" style="display: none;">
-          <li> <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"                     target="_blank">Best Time to Buy And Sell Stock</a></li>
-          <li> <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/"      target="_blank">Longest Substing Without Repeating Characters</a></li>
           <li> <a href="https://leetcode.com/problems/longest-repeating-character-replacement/"             target="_blank">Longest Repeating Character Replacement</a></li>
           <li> <a href="https://leetcode.com/problems/minimum-window-substring/"                            target="_blank">Minimum Window Substring</a></li>
+          <li> <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"                                target="_blank">Best Time to Buy And Sell Stock
+              <div class="icons">
+                <a onclick="toggleSublist('75 3a1')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="4utubelink" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="755a1" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75a1val6')">Copy</button>
+                  <pre id="75a1val7">
+8. Code
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75a19')">Close</button>
+              </div>
+            </div></a></li>
         </ul>   
       
       <!-- List4 Stack-->
