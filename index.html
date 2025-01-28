@@ -447,7 +447,7 @@ class Solution:
                 <div id="75c3" class="popup">
                   <button class="copyClip" onclick="copyToClipboard('75c3val')">Copy</button>
                   <pre id="75c3val">
-8.class Solution:
+class Solution:
     def minWindow(self, s: str, t: str) -> str:
         hashmapT = Counter(t)
         res = s+'a'
@@ -463,8 +463,7 @@ class Solution:
                 needToMatch += hashmapC[s[l]] == hashmapT[s[l]]
                 hashmapC[s[l]] -= 1
                 l += 1
-        return res if len(res) != len(s)+1 else ''
-            
+        return res if len(res) != len(s)+1 else ''            
                   </pre>
                   <button class="close-btn" onclick="closeModal('75c3')">Close</button>
               </div>
@@ -539,21 +538,36 @@ class Solution:
                   <button class="close-btn" onclick="closeModal('75e1')">Close</button>
               </div>
             </div></a></li>
-          <li> <a href="https://leetcode.com/problems/search-in-rotated-sorted-array/"                      target="_blank">Search in Rotated Sorted Array</a></li>
-          <li> <a href="https://leetcode.com/problems/minimum-window-substring/"                            target="_blank">Minimum Window Substring
+          <li> <a href="https://leetcode.com/problems/search-in-rotated-sorted-array/"                            target="_blank">Search in Rotated Sorted Array
               <div class="icons">
-                <a onclick="toggleSublist('75 3a1')" title='Code'>
+                <a onclick="toggleSublist('75e2')" title='Code'>
                     <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
                 </a>
-                <a href="4utubelink" target="_blank" title="Youtube">
+                <a href="https://youtu.be/iIF_oK4XPRI" target="_blank" title="Youtube">
                     <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
                 </a>
-                <div id="755a1" class="popup">
-                  <button class="copyClip" onclick="copyToClipboard('75a1val6')">Copy</button>
-                  <pre id="75a1val7">
-8. Code
+                <div id="75e2" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75e2val')">Copy</button>
+                  <pre id="75e2val">
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums)-1
+        while l <= r:
+            mid = (l+r)//2
+            if nums[mid] == target: return mid
+            if nums[l] <= nums[mid]: #left sorted [1,2,3,4] or [2,3,4,1]
+                if nums[l] <= target < nums[mid]:
+                    r = mid - 1
+                else:
+                    l = mid + 1
+            else: # right sorted [4, 5, 1, 2, 3] or [5, 1, 2, 3, 4]
+                if nums[mid] < target <= nums[r] :
+                    l = mid + 1
+                else:
+                    r = mid - 1
+        return -1
                   </pre>
-                  <button class="close-btn" onclick="closeModal('75a19')">Close</button>
+                  <button class="close-btn" onclick="closeModal('75e2')">Close</button>
               </div>
             </div></a></li>
         </ul> 
@@ -562,17 +576,211 @@ class Solution:
       <li onclick="toggleSublist('list6')">Linked List</li>
         <ul id="list6" class="Linked List" style="display: none;">
           <li> <a href="https://leetcode.com/problems/reverse-linked-list/"                                 target="_blank">Reverse Linked List</a></li>
-          <li> <a href="https://leetcode.com/problems/merge-two-sorted-lists/"                              target="_blank">Merge 2 Sorted Lists</a></li>
-          <li> <a href="https://leetcode.com/problems/reorder-list/"                                        target="_blank">Reorder List</a></li>
-          <li> <a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/"                    target="_blank">Remove Nth Node From End Of List</a></li>
-          <li> <a href="https://leetcode.com/problems/linked-list-cycle/"                                   target="_blank">Linked List Cycle</a></li>
-          <li> <a href="https://leetcode.com/problems/merge-k-sorted-lists/"                                target="_blank">Merge K Sorted Lists</a></li>
+          <li> <a href="https://leetcode.com/problems/reverse-linked-list/"                            target="_blank">Reverse Linked List
+              <div class="icons">
+                <a onclick="toggleSublist('75f1')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/pINGt6L5wlE" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75f1" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75f1val')">Copy</button>
+                  <pre id="75f1val">
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev, cur = None, head
+        while cur:
+            temp = cur.next
+            cur.next = prev
+            prev = cur
+            cur = temp
+        return prev
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75f1')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/merge-two-sorted-lists/"                            target="_blank">Merge 2 Sorted Lists
+              <div class="icons">
+                <a onclick="toggleSublist('75f2')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/0AtMK5pSVDw" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75f2" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75f2val')">Copy</button>
+                  <pre id="75f2val">
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        head = cur = ListNode()
+        while list1 and list2:
+            if list1.val < list2.val:
+                cur.next = list1
+                list1 = list1.next
+            else:
+                cur.next = list2
+                list2 = list2.next
+            cur = cur.next
+        
+        if list1:
+            cur.next = list1
+        if list2:
+            cur.next = list2
+        return head.next 
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75f2')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/reorder-list/"                            target="_blank">Reorder List
+              <div class="icons">
+                <a onclick="toggleSublist('75f3')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/ZamHk8bpnpo" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75f3" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75f3val')">Copy</button>
+                  <pre id="75f3val">
+class Solution:
+    def reorderList(self, head: Optional[ListNode]) -> None:
+        slow, fast = head, head.next
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        prev, cur = None, slow.next
+        slow.next = None
+        while cur:
+            temp = cur.next
+            cur.next = prev
+            prev = cur
+            cur = temp
+        first, second = head, prev
+        while first and second:
+            temp1, temp2 = first.next, second.next
+            first.next = second
+            second.next = temp1
+            first, second = temp1, temp2
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75f3')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/"                            target="_blank">Remove Nth Node From End Of List
+              <div class="icons">
+                <a onclick="toggleSublist('75f4')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/DnrY_E86Mz0" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75f4" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75a1val6')">Copy</button>
+                  <pre id="75f4val">
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        Dummy = ListNode(0, head)
+        fast = head
+        while n:
+            fast = fast.next
+            n -= 1
+        
+        slow = Dummy
+        while fast:
+            fast = fast.next
+            slow = slow.next
+        
+        slow.next = slow.next.next
+        return Dummy.next
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75f4')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/linked-list-cycle/"                            target="_blank">Linked List Cycle
+              <div class="icons">
+                <a onclick="toggleSublist('75f5')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="4utubelink" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75f5" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75f5val')">Copy</button>
+                  <pre id="75f5val">
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        if not head:
+            return False
+        slow, fast = head, head.next
+        while fast and fast.next and slow != fast:
+            slow = slow.next
+            fast = fast.next.next
+        return slow == fast
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75f5')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/merge-k-sorted-lists"                            target="_blank">Merge K Sorted Lists
+              <div class="icons">
+                <a onclick="toggleSublist('75f6')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/pL-4VoUiRq4" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75f6" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75f6val')">Copy</button>
+                  <pre id="75f6val">
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        if len(lists) < 2:
+            return lists[0] if lists else None
+        mid = len(lists) // 2
+        left = self.mergeKLists(lists[:mid])
+        right = self.mergeKLists(lists[mid:])
+        return self.merge(left, right)
+
+    def merge(self, a, b):
+        cur = Dummy = ListNode()
+        while a and b:
+            if a.val > b.val:
+                cur.next = b
+                b = b.next
+            else:
+                cur.next = a
+                a = a.next
+            cur = cur.next
+        if a:
+            cur.next = a
+        if b:
+            cur.next = b
+        return Dummy.next
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75f6')">Close</button>
+              </div>
+            </div></a></li>
         </ul>
 
       <!-- List7 Trees -->
       <li onclick="toggleSublist('list7')">Tree</li>
         <ul id="list7" class="Trees" style="display: none;">
           <li> <a href="https://leetcode.com/problems/invert-binary-tree/"                                target="_blank">Invert Binary Tree</a></li>
+           <li> <a href=""                            target="_blank">
+              <div class="icons">
+                <a onclick="toggleSublist('75g1')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="ut" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="75g1" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75g1val')">Copy</button>
+                  <pre id="75g1val">
+gg
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75g1')">Close</button>
+              </div>
+            </div></a></li>
           <li> <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/"                      target="_blank">Maximum Depth of Binary Tree</a></li>
           <li> <a href="https://leetcode.com/problems/same-tree/"                                         target="_blank">Same Tree</a></li>
           <li> <a href="https://leetcode.com/problems/subtree-of-another-tree/"                           target="_blank">Subtree of Another Tree</a></li>
