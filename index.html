@@ -1534,9 +1534,9 @@ class Solution:
       </ul>
 
       <!-- List12 AdvanceGraph -->
-      <li onclick="toggleSublist('list11')">Advance Graph</li>
+      <li onclick="toggleSublist('list12')">Advance Graph</li>
       <ul id="list12" class="Advance Graph" style="display: none;">
-        <li> <a href="https://leetcode.com/problems/alien-dictionary/"                                        target="_blank">Alien Dictionary
+        <li> <a href="https://neetcode.io/problems/foreign-dictionary"                                        target="_blank">Alien Dictionary
           <div class="icons">
             <a onclick="toggleSublist('75l1')" title='Code'>
                 <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
@@ -1547,7 +1547,42 @@ class Solution:
             <div id="75l1" class="popup">
               <button class="copyClip" onclick="copyToClipboard('75l1val')">Copy</button>
               <pre id="75l1val">
-      
+class Solution:
+    def foreignDictionary(self, words: List[str]) -> str:
+        adj = {c: set() for w in words for c in w}
+
+        for i in range(len(words) - 1):
+            w1, w2 = words[i], words[i + 1]
+            minLen = min(len(w1), len(w2))
+            if len(w1) > len(w2) and w1[:minLen] == w2[:minLen]:
+                return ""
+            for j in range(minLen):
+                if w1[j] != w2[j]:
+                    adj[w1[j]].add(w2[j])
+                    break
+
+        visited = {}
+        res = []
+
+        def dfs(char):
+            if char in visited:
+                return visited[char]
+
+            visited[char] = True
+
+            for neighChar in adj[char]:
+                if dfs(neighChar):
+                    return True
+
+            visited[char] = False
+            res.append(char)
+
+        for char in adj:
+            if dfs(char):
+                return ""
+
+        res.reverse()
+        return "".join(res)      
               </pre>
               <button class="close-btn" onclick="closeModal('75l1')">Close</button>
           </div>
@@ -1557,23 +1592,328 @@ class Solution:
       <!-- List13 1DProgramming -->
       <li onclick="toggleSublist('list13')">1D Programming</li>
         <ul id="list13" class="1D Programming" style="display: none;">
-          <li> <a href="https://leetcode.com/problems/climbing-stairs/"                                 target="_blank">Climbing Stairs</a></li>
-          <li> <a href="https://leetcode.com/problems/house-robber/"                                    target="_blank">House Robber</a></li>
-          <li> <a href="https://leetcode.com/problems/house-robber-ii/"                                 target="_blank">House Robber 2</a></li>
-          <li> <a href="https://leetcode.com/problems/longest-palindromic-substring/"                   target="_blank">Longest Palindrome Substring</a></li>
-          <li> <a href="https://leetcode.com/problems/palindromic-substrings/"                          target="_blank">Palindrome Substring</a></li>
-          <li> <a href="https://leetcode.com/problems/decode-ways/"                                     target="_blank">Decode Ways</a></li>
-          <li> <a href="https://leetcode.com/problems/coin-change/"                                     target="_blank">Coin Change</a></li>
-          <li> <a href="https://leetcode.com/problems/maximum-product-subarray/"                        target="_blank">Maximum Product Subarray</a></li>
-          <li> <a href="https://leetcode.com/problems/word-break/"                                      target="_blank">Word Break</a></li>
-          <li> <a href="https://leetcode.com/problems/longest-increasing-subsequence/"                  target="_blank">Longest Increasing Subsequence</a></li>
+          <li> <a href="https://leetcode.com/problems/climbing-stairs/"                                        target="_blank">Climbing Stairs
+          <div class="icons">
+            <a onclick="toggleSublist('75m1')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75m1" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75m1val')">Copy</button>
+              <pre id="75m1val">
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        a, b = 0, 1
+        for _ in range(n):
+            a, b = b, b+a
+        return b     
+              </pre>
+              <button class="close-btn" onclick="closeModal('75m1')">Close</button>
+          </div>
+        </div></a></li>
+          <li> <a href="https://leetcode.com/problems/house-robber/"                                        target="_blank">House Robber
+          <div class="icons">
+            <a onclick="toggleSublist('75m2')" title='Code'>
+            <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+            <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75m2" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75m2val')">Copy</button>
+              <pre id="75m2val">
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        a, b = 0, 0
+        for n in nums:
+            temp = b
+            b = max(a+n, b)
+            a = temp
+        return b     
+              </pre>
+              <button class="close-btn" onclick="closeModal('75m2')">Close</button>
+          </div>
+        </div></a></li>
+          <li> <a href=""                                 target="_blank">House Robber 2</a></li>
+          <li> <a href="https://leetcode.com/problems/house-robber-ii/"                                        target="_blank">Climbing Stairs
+          <div class="icons">
+            <a onclick="toggleSublist('75m3')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75m3" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75m3val')">Copy</button>
+              <pre id="75m3val">
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        def go(nums):
+            bag1 = bag2 = 0
+            for n in nums:
+                temp = bag1
+                bag1 = max(bag1, bag2 + n)
+                bag2 = temp
+            return bag1
+        return max(go(nums[:-1]), go(nums[1:]), nums[0])     
+              </pre>
+              <button class="close-btn" onclick="closeModal('75m3')">Close</button>
+          </div>
+        </div></a></li>
+          <li> <a href="https://leetcode.com/problems/longest-palindromic-substring/"                                        target="_blank">Longest Palindrome Substring
+          <div class="icons">
+            <a onclick="toggleSublist('75m4')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75m4" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75m4val')">Copy</button>
+              <pre id="75m4val">
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        def check(l, r):
+            while -1 < l and r < N and s[l] == s[r]:
+                l -= 1
+                r += 1
+            return l+1, r-1
+            
+        res = ''
+        N = len(s)
+        for i in range(N):
+            l, r = check(i, i)
+            if len(res) < r - l + 1:
+                res = s[l:r+1]
+            l, r = check(i, i+1)
+            if len(res) < r - l + 1:
+                res = s[l:r+1]
+        return res
+                 
+              </pre>
+              <button class="close-btn" onclick="closeModal('75m4')">Close</button>
+          </div>
+        </div></a></li>
+          <li> <a href=""                          target="_blank"></a></li>
+          <li> <a href="https://leetcode.com/problems/palindromic-substrings/"                                        target="_blank">Palindrome Substring
+          <div class="icons">
+            <a onclick="toggleSublist('75m5')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75m5" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75m5val')">Copy</button>
+              <pre id="75m5val">
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        def check(l, r):
+            cur = 0
+            while -1 < l and r < N and s[l] == s[r]:
+                cur += 1
+                l -= 1
+                r += 1
+            return cur
+        
+        res = 0
+        N = len(s)
+        for i in range(N):
+            res += check(i, i) + check(i, i+1)
+        return res     
+              </pre>
+              <button class="close-btn" onclick="closeModal('75m5')">Close</button>
+          </div>
+        </div></a></li>
+          <li> <a href="https://leetcode.com/problems/decode-ways/"                                        target="_blank">Decode Ways
+          <div class="icons">
+            <a onclick="toggleSublist('75m6')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75m6" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75m6val')">Copy</button>
+              <pre id="75m6val">
+class Solution:
+    def numDecodings(self, s: str) -> int:
+        cache = {len(s):1}
+        def dfs(i):
+            if i in cache:
+                return cache[i]
+            if s[i] == '0':
+                return 0
+            res = dfs(i+1)
+            if i+1 < len(s) and (0 < int(s[i:i+2]) < 27):
+                res += dfs(i+2)
+            cache[i] = res
+            return res
+        return dfs(0)     
+              </pre>
+              <button class="close-btn" onclick="closeModal('75m6')">Close</button>
+          </div>
+        </div></a></li>
+          <li> <a href="https://leetcode.com/problems/coin-change/"                                        target="_blank">Coin Change
+          <div class="icons">
+            <a onclick="toggleSublist('75m7')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75m7" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75m7val')">Copy</button>
+              <pre id="75m7val">
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        dp = [inf] * (amount + 1)
+        dp[0] = 0
+        for a in range(1, amount+1):
+            for c in coins:
+                if a - c > -1:
+                    dp[a] = min(dp[a], 1 + dp[a-c])   
+        return dp[-1] if dp[-1] != inf else -1     
+              </pre>
+              <button class="close-btn" onclick="closeModal('75m7')">Close</button>
+          </div>
+        </div></a></li>
+          <li> <a href="https://leetcode.com/problems/maximum-product-subarray/"                                        target="_blank">Maximum Product Subarray
+          <div class="icons">
+            <a onclick="toggleSublist('75m8')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75m8" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75m8val')">Copy</button>
+              <pre id="75m8val">
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        res = -inf
+        a = b = 1
+        for n in nums:
+            tempA = a*n
+            tempB = b*n
+            a = max(tempA, tempB ,n)
+            b = min(tempA, tempB ,n)
+            res = max(a, res)
+        return res     
+              </pre>
+              <button class="close-btn" onclick="closeModal('75m8')">Close</button>
+          </div>
+        </div></a></li>
+          <li> <a href="https://leetcode.com/problems/word-break/"                                      target="_blank">Word Break
+          <div class="icons">
+            <a onclick="toggleSublist('75m9')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75m9" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75m9val')">Copy</button>
+              <pre id="75m9val">
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        N = len(s)
+        dp = [False] * (N+1)
+        dp[-1] = True
+        
+        for i in range(N-1, -1, -1):
+            for w in wordDict:
+                L = len(w)
+                if s[i:i+L] == w:
+                    dp[i] |= dp[i+L]
+        return dp[0]     
+              </pre>
+              <button class="close-btn" onclick="closeModal('75m9')">Close</button>
+          </div>
+        </div></a></li>
+          <li> <a href="https://leetcode.com/problems/longest-increasing-subsequence/"                  target="_blank">Longest Increasing Subsequence
+          <div class="icons">
+            <a onclick="toggleSublist('75m9')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75m9" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75m9val')">Copy</button>
+              <pre id="75m9val">
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        N = len(s)
+        dp = [False] * (N+1)
+        dp[-1] = True
+        
+        for i in range(N-1, -1, -1):
+            for w in wordDict:
+                L = len(w)
+                if s[i:i+L] == w:
+                    dp[i] |= dp[i+L]
+        return dp[0]     
+              </pre>
+              <button class="close-btn" onclick="closeModal('75m9')">Close</button>
+          </div>
+        </div></a></li>
         </ul>
 
       <!-- List14 2DProgramming -->
       <li onclick="toggleSublist('list14')">2D Programming</li>
         <ul id="list14" class="2D Programming" style="display: none;">
-          <li> <a href="https://leetcode.com/problems/unique-paths/"                                    target="_blank">Unique Paths</a></li>
+          <li> <a href="https://leetcode.com/problems/unique-paths/"                                    target="_blank">Unique Paths
+          <div class="icons">
+            <a onclick="toggleSublist('75n1')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75n1" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75n1val')">Copy</button>
+              <pre id="75n1val">
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        dp = [1] * n
+        for _ in range(m-1):
+            newDp = [1] * n
+            for c in range(n-2, -1, -1):
+                newDp[c] = dp[c] + newDp[c+1]
+            dp = newDp
+        return dp[0]   
+              </pre>
+              <button class="close-btn" onclick="closeModal('75n1')">Close</button>
+          </div>
+        </div></a></li>
           <li> <a href="https://leetcode.com/problems/longest-common-subsequence/"                      target="_blank">Longest Common Subsequence</a></li>
+          <div class="icons">
+            <a onclick="toggleSublist('75n2')" title='Code'>
+                <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+            </a>
+            <a href="" target="_blank" title="Youtube">
+                <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+            </a>
+            <div id="75n2" class="popup">
+              <button class="copyClip" onclick="copyToClipboard('75n2val')">Copy</button>
+              <pre id="75n2val">
+class Solution:
+    def longestCommonSubsequence(self, t1: str, t2: str) -> int:
+        dp = [[0] * (len(t2)+1) for _ in range(len(t1)+1)]
+        for i in range(len(t1)-1, -1, -1):
+            for j in range(len(t2)-1, -1, -1):
+                if t1[i] == t2[j]:
+                    dp[i][j] = 1 + dp[i+1][j+1]
+                else:
+                    dp[i][j] = max(dp[i][j+1], dp[i+1][j])
+        return dp[0][0]     
+              </pre>
+              <button class="close-btn" onclick="closeModal('75n2')">Close</button>
+          </div>
+        </div></a></li>
         </ul>
 
 
