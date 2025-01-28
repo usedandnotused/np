@@ -514,7 +514,32 @@ class Solution:
       <!-- List5 BinarySearch-->
       <li onclick="toggleSublist('list5')">Binary Search</li>
         <ul id="list5" class="Binary Search" style="display: none;">
-          <li> <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"                target="_blank">Find Minimum in Rotated Sorted Array</a></li>
+          <li> <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"                            target="_blank">Find Minimum in Rotated Sorted Array
+              <div class="icons">
+                <a onclick="toggleSublist('75e1')" title='Code'>
+                    <img src="icons\code_icon.png" alt="Icon 1"  style="width: 25px; height: 25px;">
+                </a>
+                <a href="https://youtu.be/GF1iiqe830g" target="_blank" title="Youtube">
+                    <img src="icons\youtube.png" alt="Icon 2" style="width: 25px; height: 25px;">
+                </a>
+                <div id="755e1" class="popup">
+                  <button class="copyClip" onclick="copyToClipboard('75e1val')">Copy</button>
+                  <pre id="75e1val">
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        l, r = 0, len(nums)-1
+        while l < r:
+            m = (l + r) // 2
+            if nums[m] > nums[r]:
+                l = m + 1
+            else:
+                r = m
+        return nums[r]
+                  </pre>
+                  <button class="close-btn" onclick="closeModal('75e1')">Close</button>
+              </div>
+            </div></a></li>
+          <li> <a href="https://leetcode.com/problems/search-in-rotated-sorted-array/"                      target="_blank">Search in Rotated Sorted Array</a></li>
           <li> <a href="https://leetcode.com/problems/minimum-window-substring/"                            target="_blank">Minimum Window Substring
               <div class="icons">
                 <a onclick="toggleSublist('75 3a1')" title='Code'>
@@ -531,7 +556,6 @@ class Solution:
                   <button class="close-btn" onclick="closeModal('75a19')">Close</button>
               </div>
             </div></a></li>
-          <li> <a href="https://leetcode.com/problems/search-in-rotated-sorted-array/"                      target="_blank">Search in Rotated Sorted Array</a></li>
         </ul> 
 
       <!-- List6 LinkedList -->
