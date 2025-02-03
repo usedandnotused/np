@@ -1548,7 +1548,7 @@ class Solution:
               <pre id="75l1val">
 class Solution:
     def foreignDictionary(self, words: List[str]) -> str:
-        adj = {c: set() for w in words for c in w}
+        adj = defaultdict(set)
 
         for i in range(len(words) - 1):
             w1, w2 = words[i], words[i + 1]
